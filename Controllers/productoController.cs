@@ -16,7 +16,7 @@ namespace Gestion_ProductosT.Controllers
         {
             try
             {
-                var producto = _context.productos.Find();
+                var producto = _context.productos.ToList();
                 return View(producto);
             }
             catch (DbUpdateException ex)

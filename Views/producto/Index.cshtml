@@ -3,6 +3,31 @@
     ViewData["Title"] = "Index";
 }
 
+@model List<ProductosModel>
 
-<h1>Index</h1>
+<div class="container">
+    <div class="row">
+        <h1>Almacen de productos</h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var producto in Model){
+                <tr>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Descripcion</td>
+                    <td>@producto.Precio</td>
+                    <td>@producto.Stock</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
