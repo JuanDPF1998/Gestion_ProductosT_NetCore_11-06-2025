@@ -1,4 +1,5 @@
 ﻿using Gestion_ProductosT.Data;
+using Gestion_ProductosT.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,7 +28,21 @@ namespace Gestion_ProductosT.Controllers
             {
                 return Content("Excepcion no controlada :" + ex.Message);
             }
+        }
+        public IActionResult Create()
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(ProductosModel productos)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.productos.Add(productos);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productos);
         }
     }
 }
