@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gestion_ProductosT.Models
 {
+    [Table("productos")]
     public class ProductosModel
     {
         [Key]
