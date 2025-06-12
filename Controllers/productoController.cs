@@ -44,5 +44,14 @@ namespace Gestion_ProductosT.Controllers
             }
             return View(productos);
         }
+        public IActionResult Edit(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var producto = _context.productos.Find(id);
+            return View(producto);
+        }
     }
 }

@@ -17,6 +17,7 @@
                 <th>Descripcion</th>
                 <th>Precio</th>
                 <th>Stock</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                     <td>@producto.Descripcion</td>
                     <td>@producto.Precio</td>
                     <td>@producto.Stock</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@producto.Id" class="btn btn-secondary">Editar</a>
+                    </td>
                 </tr>
             }
         </tbody>
