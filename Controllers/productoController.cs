@@ -53,5 +53,20 @@ namespace Gestion_ProductosT.Controllers
             var producto = _context.productos.Find(id);
             return View(producto);
         }
+        [HttpPost]
+        public IActionResult Edit(int? id, ProductosModel productos)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _context.productos.Update(productos);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productos);
+        }
     }
 }
