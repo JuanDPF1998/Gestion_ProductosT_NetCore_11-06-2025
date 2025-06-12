@@ -54,9 +54,9 @@ namespace Gestion_ProductosT.Controllers
             return View(producto);
         }
         [HttpPost]
-        public IActionResult Edit(int? id, ProductosModel productos)
+        public IActionResult Edit(int id, ProductosModel productos)
         {
-            if (id == null)
+            if (id != productos.Id)
             {
                 return NotFound();
             }
@@ -67,6 +67,19 @@ namespace Gestion_ProductosT.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(productos);
+        }
+       public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var producto = _context.productos.Find(id);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+            return View(producto);
         }
     }
 }
