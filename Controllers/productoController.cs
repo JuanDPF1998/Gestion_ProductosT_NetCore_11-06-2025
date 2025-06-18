@@ -93,7 +93,7 @@ namespace Gestion_ProductosT.Controllers
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
-                return View();
+               return View();
             }
             catch (Exception ex)
             {
