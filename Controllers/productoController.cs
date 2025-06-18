@@ -81,5 +81,25 @@ namespace Gestion_ProductosT.Controllers
             }
             return View(producto);
         }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var producto = _context.productos.Find(id);
+                if (ModelState.IsValid)
+                {
+                    _context.productos.Remove(producto);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return Content("Error al eliminar el producrto :" + ex.Message);
+            }
+            
+        }
     }
 }
